@@ -5,6 +5,7 @@ import './CourseInput.css';
 
 const CourseInput = props => {
   const [enteredValue, setEnteredValue] = useState('');
+  
 
   const goalInputChangeHandler = event => {
     setEnteredValue(event.target.value);
@@ -12,6 +13,9 @@ const CourseInput = props => {
 
   const formSubmitHandler = event => {
     event.preventDefault();
+    if (enteredValue.trim().length === 0) {
+      return;
+    }
     props.onAddGoal(enteredValue);
   };
 
