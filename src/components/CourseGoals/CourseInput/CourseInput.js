@@ -18,10 +18,10 @@ const CourseInput = props => {
   return (
     <form onSubmit={formSubmitHandler}>
       <div className="form-control">
-        <label>Course Goal</label>
+        <label>Curso metas</label>
         <input type="text" onChange={goalInputChangeHandler} />
       </div>
-      <Button type="submit">Add Goal</Button>
+      <Button type="submit">Añadir Tareas</Button>
     </form>
   );
 };
