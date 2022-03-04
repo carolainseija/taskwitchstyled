@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Button from '../../UI/Button/Button';
-import './CourseInput.css';
+import styles from './CourseInput.module.css';
 
 const CourseInput = props => {
   const [enteredValue, setEnteredValue] = useState('');
@@ -9,6 +9,9 @@ const CourseInput = props => {
   
 
   const goalInputChangeHandler = event => {
+    if(event.target.value.trim().length > 0) {
+      setIsValidate(true)
+    }
     setEnteredValue(event.target.value);
   };
 
@@ -23,9 +26,9 @@ const CourseInput = props => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className={`form-control ${!isValidate ? 'validate' : ''}`}>
+      <div className={`${styles['form-control']} ${!isValidate && styles.invalid}`}>
         <label>Curso metas</label>
-        <input className={`form-control ${isValidate}`} type="text" onChange={goalInputChangeHandler} />
+        <input className={`${styles['form-control']} ${isValidate}`} type="text" onChange={goalInputChangeHandler} />
       </div>
       <Button type="submit">Añadir Nuevas Tareas</Button>
     </form>
