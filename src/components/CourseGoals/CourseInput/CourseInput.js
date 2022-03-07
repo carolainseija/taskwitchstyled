@@ -18,7 +18,7 @@ const CourseInput = props => {
   const formSubmitHandler = event => {
     event.preventDefault();
     if (enteredValue.trim().length === 0) {
-      isValidate(false)
+      setIsValidate(false)
       return;
     }
     props.onAddGoal(enteredValue);
